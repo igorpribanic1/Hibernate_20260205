@@ -67,7 +67,7 @@ public class Main {
         try {
             if(product != null) {
                 transaction = session.beginTransaction();
-                session.update(session.merge(product));
+                session.update(product);
                 transaction.commit();
                 System.out.println("Product updated successfully!");
             } else{
@@ -94,7 +94,7 @@ public class Main {
         try {
             if(product != null) {
                 transaction = session.beginTransaction();
-                session.remove(session.merge(product));
+                session.remove(product);
                 transaction.commit();
                 System.out.println("Product deleted successfully!");
             } else{
