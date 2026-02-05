@@ -22,12 +22,12 @@ public class Main {
 
         addProduct(product);
 
+
         product.setName("New Product Modified Name");
         updateProduct(product);
 
 
         deleteProduct(product);
-
 
     }
 
@@ -67,7 +67,7 @@ public class Main {
         try {
             if(product != null) {
                 transaction = session.beginTransaction();
-                session.update(product);
+                session.update(session.merge(product));
                 transaction.commit();
                 System.out.println("Product updated successfully!");
             } else{
@@ -94,7 +94,7 @@ public class Main {
         try {
             if(product != null) {
                 transaction = session.beginTransaction();
-                session.delete(product);
+                session.remove(session.merge(product));
                 transaction.commit();
                 System.out.println("Product deleted successfully!");
             } else{
