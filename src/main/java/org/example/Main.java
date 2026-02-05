@@ -40,10 +40,14 @@ public class Main {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
-            transaction = session.beginTransaction();
-            session.persist(product);
-            transaction.commit();
-            System.out.println("Product added successfully!");
+            if(product != null) {
+                transaction = session.beginTransaction();
+                session.persist(product);
+                transaction.commit();
+                System.out.println("Product added successfully!");
+            } else{
+                System.out.println("Product is not defined!");
+            }
         }
         catch (Exception e) {
             if (transaction != null){
@@ -61,10 +65,14 @@ public class Main {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
-            transaction = session.beginTransaction();
-            session.update(product);
-            transaction.commit();
-            System.out.println("Product updated successfully!");
+            if(product != null) {
+                transaction = session.beginTransaction();
+                session.update(product);
+                transaction.commit();
+                System.out.println("Product updated successfully!");
+            } else{
+                System.out.println("Product is not defined!");
+            }
         }
         catch (Exception e) {
             if (transaction != null){
@@ -84,10 +92,14 @@ public class Main {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
-            transaction = session.beginTransaction();
-            session.delete(product);
-            transaction.commit();
-            System.out.println("Product deleted successfully!");
+            if(product != null) {
+                transaction = session.beginTransaction();
+                session.delete(product);
+                transaction.commit();
+                System.out.println("Product deleted successfully!");
+            } else{
+                System.out.println("Product not defined!");
+            }
         }
         catch (Exception e) {
             if (transaction != null){
